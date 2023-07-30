@@ -1,0 +1,83 @@
+public class Starship {
+    // Instance variables
+    private String name;
+    private int maxSpeed;
+    private int cargoCapacity;
+    private boolean isFueled;
+    
+    // Constructor with parameters
+    public Starship(String name, int maxSpeed, int cargoCapacity) {
+        this.name = name;
+        this.maxSpeed = maxSpeed;
+        this.cargoCapacity = cargoCapacity;
+        this.isFueled = false; // Assume the starship is not fueled initially
+    }
+    
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+    
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+    
+    public int getCargoCapacity() {
+        return cargoCapacity;
+    }
+    
+    public boolean isFueled() {
+        return isFueled;
+    }
+    
+    // Setter methods
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+    
+    public void setCargoCapacity(int cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+    
+    public void setFueled(boolean isFueled) {
+        this.isFueled = isFueled;
+    }
+    
+    // Other methods
+    public void refuel() {
+        isFueled = true;
+        System.out.println(name + " has been refueled.");
+    }
+    
+    public void launch() {
+        if (isFueled) {
+            System.out.println(name + " is launching into space!");
+        } else {
+            System.out.println(name + " cannot launch. It needs to be refueled first.");
+        }
+    }
+    
+    public void loadCargo(int amount) {
+        if (amount <= cargoCapacity) {
+            System.out.println("Loading " + amount + " units of cargo onto " + name + ".");
+        } else {
+            System.out.println("Not enough cargo capacity to load " + amount + " units of cargo on " + name + ".");
+        }
+    }
+    
+    // Main method for testing the class
+    public static void main(String[] args) {
+        // Create a new starship object
+        Starship millenniumFalcon = new Starship("Millennium Falcon", 1000, 5000);
+        
+        // Access and modify the properties
+        millenniumFalcon.setFueled(true);
+        millenniumFalcon.refuel();
+        millenniumFalcon.loadCargo(3000);
+        millenniumFalcon.launch();
+    }
+}
